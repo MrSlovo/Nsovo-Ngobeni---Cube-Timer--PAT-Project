@@ -33,11 +33,18 @@ public class TimeHandler extends TimerTask {
       time += increment;
   }
 
+  /**
+   * Changes the count state of the program
+   * @param countState The new count state of the program
+   */
   public static void setCountState(boolean countState) {
-    System.out.println("setCountState triggered");
     TimeHandler.countState = countState;
   }
 
+  /**
+   * Returns the current count state of the program
+   * @return Count state of the program
+   */
   public static boolean getCountState() {
     return countState;
   }
