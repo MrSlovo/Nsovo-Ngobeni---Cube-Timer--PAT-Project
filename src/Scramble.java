@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 public class Scramble {
 	/** The scramble written in standard cube notation */
 	private String scramble;
+	/** Whether or not the solve has been succesfully completed */
+	private boolean solveStatus;
 	/** The time taken to solve the scramble (in milliseconds) */
 	private int time;
 	/** The date and time the solve was completed */
@@ -39,6 +41,25 @@ public class Scramble {
 	 */
 	public void setScramble(String scramble) {
 		this.scramble = scramble;
+	}
+
+	/**
+	 * Returns a boolean value representing whether or not the scramble has been
+	 * succesfully solved
+	 * 
+	 * @return The solve status of the scramble
+	 */
+	public boolean getStatus() {
+		return solveStatus;
+	}
+
+	/**
+	 * Changes the solve status of the scramble
+	 * 
+	 * @param solveStatus The new solve status of the scramble
+	 */
+	public void setSolveStatus(boolean solveStatus) {
+		this.solveStatus = solveStatus;
 	}
 
 	/**
