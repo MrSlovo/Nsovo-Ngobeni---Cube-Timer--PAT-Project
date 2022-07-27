@@ -80,16 +80,6 @@ public class TimeHandler extends TimerTask {
    * @return A string representing the time formated mm : ss : milliseconds
    */
   public static String getFormatedTime() {
-    // Converts milliseconds into minutes and seconds
-    int min = (int) Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
-    int sec = (int) Math.floor((time % (1000 * 60)) / 1000);
-    int centi = (int) Math.floor((time % 1000) / 10);
-
-    // Converts time into seconds and adds leading 0's where applicalble
-    String minPad = min < 10 ? "0" + min : min + "";
-    String secPad = sec < 10 ? "0" + sec : sec + "";
-    String centiPad = centi < 10 ? "0" + centi : centi + "";
-
-    return minPad + ":" + secPad + ":" + centiPad;
+    return Util.formatTime(time);
   }
 }
