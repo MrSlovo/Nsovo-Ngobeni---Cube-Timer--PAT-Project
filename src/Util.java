@@ -1,5 +1,11 @@
 /** A utility class that acts as a vendor for common tasks throughout the program */
 public class Util {
+
+  /**
+   * Formats an input time in milliseconds to the format mm : ss : cc
+   * @param time The time in milliseconds
+   * @return The time formated into the format mm : ss : cc
+   */
 	public static String formatTime(int time) {
     // Converts milliseconds into minutes and seconds
     int min = (int) Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
