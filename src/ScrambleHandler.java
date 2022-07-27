@@ -13,9 +13,9 @@ public class ScrambleHandler {
 		String scramble = "";
 		for (int i = 0; i < 15; i++) {
 			String move = MOVE_SET_3x3[(int) Math.floor(Math.random() * MOVE_SET_3x3.length)];
-			scramble += move;
+			scramble += ", " + move;
 		}
-		return scramble;
+		return scramble.substring(1);
 	}
 
 	/**
@@ -28,8 +28,8 @@ public class ScrambleHandler {
 		String scramble = "";
 		for (int i = 0; i < scrambleLength; i++) {
 			String move = MOVE_SET_3x3[(int) Math.floor(Math.random() * MOVE_SET_3x3.length)];
-			scramble += move;
+			scramble += ", " + move;
 		}
-		return scramble;
+		return scramble.substring(1);
 	}
 }
