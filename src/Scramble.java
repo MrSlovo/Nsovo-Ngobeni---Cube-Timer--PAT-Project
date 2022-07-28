@@ -11,6 +11,8 @@ public class Scramble {
 	/** The date and time the solve was completed */
 	private LocalDateTime timeOfSolve;
 
+	// Test change
+
 	/**
 	 * Instantiates a new Scramble object
 	 * 

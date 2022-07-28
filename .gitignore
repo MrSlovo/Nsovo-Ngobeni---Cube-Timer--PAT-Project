@@ -29,6 +29,7 @@ replay_pid*
 # NetBeans specific
 nbproject/
 build/
+build/classes
 nbbuild/
 test/
 dist/
