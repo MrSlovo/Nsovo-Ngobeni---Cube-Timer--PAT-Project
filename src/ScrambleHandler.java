@@ -9,7 +9,7 @@ public class ScrambleHandler {
 	 * 
 	 * @return A string representing a scramble in the standard cube notation format
 	 */
-	public static String generateScramble() {
+	public String generateScramble() {
 		String scramble = "";
 		for (int i = 0; i < 15; i++) {
 			String move = MOVE_SET_3x3[(int) Math.floor(Math.random() * MOVE_SET_3x3.length)];
@@ -24,7 +24,7 @@ public class ScrambleHandler {
 	 * @param scrambleLength The number of moves the scramble contains
 	 * @return A string representing a scramble in the standard cube notation format
 	 */
-	public static String generateScramble(int scrambleLength) {
+	public String generateScramble(int scrambleLength) {
 		String scramble = "";
 		for (int i = 0; i < scrambleLength; i++) {
 			String move = MOVE_SET_3x3[(int) Math.floor(Math.random() * MOVE_SET_3x3.length)];

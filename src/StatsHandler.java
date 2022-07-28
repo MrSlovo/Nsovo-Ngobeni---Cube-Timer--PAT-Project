@@ -1,6 +1,6 @@
 public class StatsHandler {
 	// * An array of all scrambles */
-	private static Scramble[] scrambles;
+	private Scramble[] scrambles;
 
 	/**
 	 * Returns the average time taken to complete the last n solves in milliseconds
@@ -8,7 +8,7 @@ public class StatsHandler {
 	 * @param n The number of solves to be averaged
 	 * @return The average time taken to complete the solves
 	 */
-	public static int getAverage(int n) {
+	public int getAverage(int n) {
 		int totalTime = 0;
 		for (int i = scrambles.length - 1; i >= 0; i--) {
 			Scramble s = scrambles[i];
@@ -24,7 +24,7 @@ public class StatsHandler {
 	 * @param n The number of solves to be averaged
 	 * @return The average time taken to complete the solves
 	 */
-	public static String getFromatedAverage(int n) {
+	public String getFromatedAverage(int n) {
 		int avg = getAverage(n);
 		return Util.formatTime(avg);
 	}
@@ -34,7 +34,7 @@ public class StatsHandler {
 	 * 
 	 * @return The total amount of time spent solving scrambles
 	 */
-	public static int getTotal() {
+	public int getTotal() {
 		int totalTime = 0;
 		for (int i = 0; i < scrambles.length; i++) {
 			Scramble s = scrambles[i];
@@ -48,8 +48,20 @@ public class StatsHandler {
 	 * 
 	 * @return The total amount of time spent solving scrambles
 	 */
-	public static String getFormatedTotal() {
+	public String getFormatedTotal() {
 		int total = getTotal();
 		return Util.formatTime(total);
 	}
+
+	/**
+	 * Gets the details of the all solves stored in the database
+	 * @return The solves stored in the database
+	 */
+	// public String getSolves() {}
+
+	/**
+	 * Gets the details of last  n solves stored in the database
+	 * @return The last n solves stored in the database
+	 */
+	// public String getSolves(int n) {}
 }

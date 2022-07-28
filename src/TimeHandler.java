@@ -5,8 +5,8 @@ import java.util.TimerTask;
  */
 public class TimeHandler extends TimerTask {
 
-  private static int time = 0;
-  private static boolean countState = false;
+  private int time = 0;
+  private boolean countState = false;
 
   // Timer task run method. Gets called each time the timer task is executed
   public void run() {
@@ -28,31 +28,33 @@ public class TimeHandler extends TimerTask {
    * @param increment The increment (in milliseconds) that will be applied to to
    *                  the time
    */
-  public static void incrementTime(int increment) {
+  public void incrementTime(int increment) {
     if (countState)
       time += increment;
   }
 
   /**
    * Changes the count state of the program
+   * 
    * @param countState The new count state of the program
    */
-  public static void setCountState(boolean countState) {
-    TimeHandler.countState = countState;
+  public void setCountState(boolean countState) {
+    this.countState = countState;
   }
 
   /**
    * Returns the current count state of the program
+   * 
    * @return Count state of the program
    */
-  public static boolean getCountState() {
+  public boolean getCountState() {
     return countState;
   }
 
   /**
    * Toggles the count state on and off
    */
-  public static void toggleCountState() {
+  public void toggleCountState() {
     countState = !countState;
   }
 
@@ -61,8 +63,8 @@ public class TimeHandler extends TimerTask {
    * 
    * @param time The time elapsed in milliseconds
    */
-  public static void setTime(int time) {
-    TimeHandler.time = time;
+  public void setTime(int time) {
+    this.time = time;
   }
 
   /**
@@ -70,7 +72,7 @@ public class TimeHandler extends TimerTask {
    * 
    * @return The time elapsed in milliseconds
    */
-  public static int getTime() {
+  public int getTime() {
     return time;
   }
 
@@ -79,7 +81,7 @@ public class TimeHandler extends TimerTask {
    * 
    * @return A string representing the time formated mm : ss : milliseconds
    */
-  public static String getFormatedTime() {
+  public String getFormatedTime() {
     return Util.formatTime(time);
   }
 }

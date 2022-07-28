@@ -4,17 +4,20 @@ import java.util.TimerTask;
 
 public class MainScreen extends javax.swing.JFrame {
 
+  public int time = 0;
+  public Timer timer = new Timer();
+  public ScrambleHandler scrambleHandler = new ScrambleHandler();
+  public TimeHandler timeHandler = new TimeHandler();
+  
   /**
    * Creates new form MainScreen
    */
   public MainScreen() {
     initComponents();
-    lblScramble.setText(ScrambleHandler.generateScramble());
-    lblTime.setText(TimeHandler.getFormatedTime());
+    lblScramble.setText(scrambleHandler.generateScramble());
+    lblTime.setText(timeHandler.getFormatedTime());
   }
 
-  public static int time = 0;
-  public Timer timer = new Timer();
 
   /**
    * This method is called from within the constructor to initialize the form.
@@ -26,7 +29,8 @@ public class MainScreen extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
   // <editor-fold defaultstate="collapsed" desc="Generated
-  // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
     jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -87,29 +91,29 @@ public class MainScreen extends javax.swing.JFrame {
     javax.swing.GroupLayout divControlsLayout = new javax.swing.GroupLayout(divControls);
     divControls.setLayout(divControlsLayout);
     divControlsLayout.setHorizontalGroup(
-      divControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, divControlsLayout.createSequentialGroup()
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(btnPenalty)
-        .addGap(18, 18, 18)
-        .addGroup(divControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-          .addComponent(btnToggleTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(btnReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addGap(18, 18, 18)
-        .addComponent(btnDnf)
-        .addGap(19, 19, 19))
-    );
+        divControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, divControlsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPenalty)
+                .addGap(18, 18, 18)
+                .addGroup(divControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnToggleTime, javax.swing.GroupLayout.DEFAULT_SIZE,
+                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                        Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnDnf)
+                .addGap(19, 19, 19)));
     divControlsLayout.setVerticalGroup(
-      divControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(divControlsLayout.createSequentialGroup()
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(btnToggleTime)
-        .addGap(18, 18, 18)
-        .addGroup(divControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(btnDnf)
-          .addComponent(btnPenalty)
-          .addComponent(btnReset)))
-    );
+        divControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(divControlsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnToggleTime)
+                .addGap(18, 18, 18)
+                .addGroup(divControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDnf)
+                    .addComponent(btnPenalty)
+                    .addComponent(btnReset))));
 
     lblAO5.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
     lblAO5.setText("Last 5: 00:00");
@@ -120,23 +124,21 @@ public class MainScreen extends javax.swing.JFrame {
     javax.swing.GroupLayout divAveragesLayout = new javax.swing.GroupLayout(divAverages);
     divAverages.setLayout(divAveragesLayout);
     divAveragesLayout.setHorizontalGroup(
-      divAveragesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(divAveragesLayout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(lblAO5)
-        .addGap(18, 18, 18)
-        .addComponent(lblAO7)
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-    );
+        divAveragesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(divAveragesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblAO5)
+                .addGap(18, 18, 18)
+                .addComponent(lblAO7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
     divAveragesLayout.setVerticalGroup(
-      divAveragesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, divAveragesLayout.createSequentialGroup()
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addGroup(divAveragesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(lblAO5)
-          .addComponent(lblAO7))
-        .addGap(38, 38, 38))
-    );
+        divAveragesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, divAveragesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(divAveragesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAO5)
+                    .addComponent(lblAO7))
+                .addGap(38, 38, 38)));
 
     lblScramble.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
     lblScramble.setText("--scramble--error--");
@@ -144,116 +146,112 @@ public class MainScreen extends javax.swing.JFrame {
     javax.swing.GroupLayout TimerLayout = new javax.swing.GroupLayout(Timer);
     Timer.setLayout(TimerLayout);
     TimerLayout.setHorizontalGroup(
-      TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(TimerLayout.createSequentialGroup()
-        .addGroup(TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(TimerLayout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(lblScramble, javax.swing.GroupLayout.PREFERRED_SIZE, 854, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addGroup(TimerLayout.createSequentialGroup()
-            .addGap(329, 329, 329)
-            .addGroup(TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-              .addComponent(lblTime)
-              .addGroup(TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(TimerLayout.createSequentialGroup()
-                  .addGap(21, 21, 21)
-                  .addComponent(divControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(TimerLayout.createSequentialGroup()
-                  .addGap(7, 7, 7)
-                  .addComponent(divAverages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-        .addContainerGap(128, Short.MAX_VALUE))
-    );
+        TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TimerLayout.createSequentialGroup()
+                .addGroup(TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TimerLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblScramble, javax.swing.GroupLayout.PREFERRED_SIZE, 854,
+                            javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(TimerLayout.createSequentialGroup()
+                        .addGap(329, 329, 329)
+                        .addGroup(TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblTime)
+                            .addGroup(TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(TimerLayout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addComponent(divControls, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(TimerLayout.createSequentialGroup()
+                                    .addGap(7, 7, 7)
+                                    .addComponent(divAverages, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(128, Short.MAX_VALUE)));
     TimerLayout.setVerticalGroup(
-      TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(TimerLayout.createSequentialGroup()
-        .addGap(84, 84, 84)
-        .addComponent(lblScramble)
-        .addGap(92, 92, 92)
-        .addComponent(lblTime)
-        .addGap(18, 18, 18)
-        .addComponent(divAverages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(18, 18, 18)
-        .addComponent(divControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(193, Short.MAX_VALUE))
-    );
+        TimerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TimerLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(lblScramble)
+                .addGap(92, 92, 92)
+                .addComponent(lblTime)
+                .addGap(18, 18, 18)
+                .addComponent(divAverages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(divControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                    javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(193, Short.MAX_VALUE)));
 
     jTabbedPane1.addTab("Timer", Timer);
 
     javax.swing.GroupLayout StatsLayout = new javax.swing.GroupLayout(Stats);
     Stats.setLayout(StatsLayout);
     StatsLayout.setHorizontalGroup(
-      StatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 994, Short.MAX_VALUE)
-    );
+        StatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 994, Short.MAX_VALUE));
     StatsLayout.setVerticalGroup(
-      StatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 698, Short.MAX_VALUE)
-    );
+        StatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 698, Short.MAX_VALUE));
 
     jTabbedPane1.addTab("Stats", Stats);
 
     javax.swing.GroupLayout TrainerLayout = new javax.swing.GroupLayout(Trainer);
     Trainer.setLayout(TrainerLayout);
     TrainerLayout.setHorizontalGroup(
-      TrainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 994, Short.MAX_VALUE)
-    );
+        TrainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 994, Short.MAX_VALUE));
     TrainerLayout.setVerticalGroup(
-      TrainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 698, Short.MAX_VALUE)
-    );
+        TrainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 698, Short.MAX_VALUE));
 
     jTabbedPane1.addTab("Trainer", Trainer);
 
     javax.swing.GroupLayout HelpLayout = new javax.swing.GroupLayout(Help);
     Help.setLayout(HelpLayout);
     HelpLayout.setHorizontalGroup(
-      HelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 994, Short.MAX_VALUE)
-    );
+        HelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 994, Short.MAX_VALUE));
     HelpLayout.setVerticalGroup(
-      HelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 698, Short.MAX_VALUE)
-    );
+        HelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 698, Short.MAX_VALUE));
 
     jTabbedPane1.addTab("Help", Help);
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
-      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jTabbedPane1)
-    );
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1));
     layout.setVerticalGroup(
-      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jTabbedPane1)
-    );
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1));
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
   public void updateTimer() {
-    lblTime.setText(TimeHandler.getFormatedTime());
+    lblTime.setText(timeHandler.getFormatedTime());
   }
 
   private void btnToggleTimeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnToggleTimeActionPerformed
     // Toggles count state
     System.out.print("Toggle Triggered \t");
-    TimeHandler.toggleCountState();
+    timeHandler.toggleCountState();
 
     // Changes button text based on count state
-    btnToggleTime.setText(TimeHandler.getCountState() ? "STOP" : "START");
+    btnToggleTime.setText(timeHandler.getCountState() ? "STOP" : "START");
     System.out.print("countState: ");
-    System.out.println(TimeHandler.getCountState());
+    System.out.println(timeHandler.getCountState());
 
     // Handles timer functions
-    if (TimeHandler.getCountState()) {
+    if (timeHandler.getCountState()) {
       // Creates a timer that executes the increment function every 0.01 seconds and
       // refreshes the text displayed on screen
       timer = new Timer();
       timer.schedule(new TimerTask() {
         public void run() {
-          TimeHandler.incrementTime(10);
+          timeHandler.incrementTime(10);
           updateTimer();
         }
       }, 10, 10);
@@ -265,7 +263,7 @@ public class MainScreen extends javax.swing.JFrame {
   }// GEN-LAST:event_btnToggleTimeActionPerformed
 
   private void btnDnfActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDnfActionPerformed
-    TimeHandler.setTime(0);
+    timeHandler.setTime(0);
   }// GEN-LAST:event_btnDnfActionPerformed
 
   private void btnPenaltyActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnPenaltyActionPerformed
@@ -275,13 +273,13 @@ public class MainScreen extends javax.swing.JFrame {
   private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnPenalty1ActionPerformed
     System.out.println("Reset triggered");
     // Counstate
-    TimeHandler.setCountState(false);
-    TimeHandler.setTime(0);
+    timeHandler.setCountState(false);
+    timeHandler.setTime(0);
     timer.cancel();
     updateTimer();
 
     // Scramble
-    lblScramble.setText(ScrambleHandler.generateScramble());
+    lblScramble.setText(scrambleHandler.generateScramble());
   }// GEN-LAST:event_btnPenalty1ActionPerformed
 
   /**
